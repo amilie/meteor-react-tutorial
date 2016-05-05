@@ -1,0 +1,159 @@
+body {
+  font-family: sans-serif;
+  color: #4c4c4c;
+  background-color: #e6e6e6;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+body h1 {
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+body ul {
+  margin: 12px 0 0 0;
+  padding: 0;
+  background: white;
+}
+
+body form {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  position: relative;
+}
+
+body button {
+  background: none;
+  border: none;
+}
+
+body .container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: #e6e6e6;
+}
+
+body .container header {
+  background: #00b5d4;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+
+body .container header .hide-completed {
+  float: right;
+}
+
+body .container #login-buttons {
+  display: block;
+}
+
+body .container .new-task input {
+  box-sizing: border-box;
+  padding: 10px 80px 10px 10px;
+  background: #ffffff;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+body .container .new-task input::-webkit-input-placeholder {
+  color: #8b7db3;
+}
+
+body .container .new-task input:-moz-placeholder {
+  color: #8b7db3;
+}
+
+body .container .new-task input::-moz-placeholder {
+  color: #8b7db3;
+}
+
+body .container .new-task input:-ms-input-placeholder {
+  color: #8b7db3;
+}
+
+body .container .new-task input:focus {
+  outline: 0;
+}
+
+body .container li {
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #e6e6e6 solid 1px;
+  background-color: #def4df;
+}
+
+body .container li.checked {
+  color: #7c7c7c;
+  background-color: #e4eee4;
+}
+
+body .container li.checked.private {
+  background-color: #d6edef;
+}
+
+body .container li.checked .text {
+  text-decoration: line-through;
+}
+
+body .container li .text {
+  margin-left: 10px;
+}
+
+body .container li .toggle-private {
+  margin-left: 5px;
+}
+
+body .container li .toggle-private:hover, body .container li .toggle-private:active {
+  color: #0fc6d1;
+}
+
+body .container li.private {
+  background-color: #caf8fb;
+}
+
+body .container li.private .toggle-private:hover, body .container li.private .toggle-private:active {
+  color: #5bc760;
+}
+
+body .container li .delete, body .container li .toggle-private {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+body .container li .delete {
+  float: right;
+  position: relative;
+}
+
+body .container li .delete:hover, body .container li .delete:active {
+  color: #ea5b65;
+}
+
+@media (max-width: 600px) {
+  li {
+    padding: 12px 15px;
+  }
+  .search {
+    width: 150px;
+    clear: both;
+  }
+  .new-task input {
+    padding-bottom: 5px;
+  }
+}

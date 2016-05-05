@@ -1,0 +1,188 @@
+// PALETTE
+$white: #ffffff;
+$lightgray: #e6e6e6;
+$medgray: #7c7c7c;
+$darkgray: #4c4c4c;
+$blue: #00b5d4;
+$aqua: #0fc6d1;
+$green: #5bc760;
+$yellow: #f8d509;
+$red: #ea5b65;
+$purple: #8b7db3;
+
+// MIXINS
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+// FUNCTIONS
+@function pastelify($color) {
+  @return scale-color($color, $lightness: 80%);
+}
+
+@function desaturate-pastel($color) {
+  @return scale-color(pastelify($color), $saturation: -50%);
+}
+
+body {
+  font-family: sans-serif;
+  color: $darkgray;
+  background-color: $lightgray;
+  background-attachment: fixed;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 14px;
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 1em;
+  }
+
+  ul {
+    margin: 12px 0 0 0;
+    padding: 0;
+    background: white;
+  }
+
+  form {
+    margin-top: 10px;
+    margin-bottom: -10px;
+    position: relative;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100%;
+    background: $lightgray;
+
+    header {
+      background: $blue;
+      color: $white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+
+      .hide-completed {
+        float: right;
+      }
+    }
+
+    #login-buttons {
+      display: block;
+    }
+
+    .new-task input {
+      @include placeholder($purple);
+      box-sizing: border-box;
+      padding: 10px 80px 10px 10px;
+      background: $white;
+      border: none;
+      width: 100%;
+      font-size: 1em;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    li {
+      position: relative;
+      list-style: none;
+      padding: 15px;
+      border-bottom: $lightgray solid 1px;
+      background-color: pastelify($green);
+
+      &.checked {
+        color: $medgray;
+        background-color: desaturate-pastel($green);
+
+        &.private {
+          background-color: desaturate-pastel($aqua);
+        }
+
+        .text {
+          text-decoration: line-through;
+        }
+      }
+
+      .text {
+        margin-left: 10px;
+      }
+
+      .toggle-private {
+        margin-left: 5px;
+
+        &:hover, &:active {
+          color: $aqua;
+        }
+      }
+
+      &.private {
+        background-color: pastelify($aqua);
+
+        .toggle-private {
+          &:hover, &:active {
+            color: $green;
+          }
+        }
+      }
+
+      .delete, .toggle-private {
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+      .delete {
+        float: right;
+        position: relative;
+
+        &:hover, &:active {
+          color: $red;
+        }
+      }
+    } // end li
+  } // end .container
+} // end body
+
+@media (max-width: 600px) {
+  li {
+    padding: 12px 15px;
+  }
+
+  .search {
+    width: 150px;
+    clear: both;
+  }
+
+  .new-task input {
+    padding-bottom: 5px;
+  }
+}
